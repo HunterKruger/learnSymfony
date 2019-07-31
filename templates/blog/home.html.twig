@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+{{controllerName}}  home
+{% endblock %}
+
+{% block body %}
+<h1>Welcome to my blog</h1>
+<h2>{{ greeting }}</h2>
+{% if gender == "male" %}
+  <p>What's up, bro?</p>
+{% else %}
+  <p>Welcome, lady!</p>
+{% endif %}
+<p>My name is FENG Yuan, engineering student from EMSE.</p>
+<p>Nice to meet you</p>
+{% endblock %}

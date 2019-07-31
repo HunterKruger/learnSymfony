@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  <article>
+        <h2>{{ article.title }}</h2>
+        <div class="metadata">Written on {{article.createdAt | date('d/m/Y')}} at {{article.createdAt | date('H:i')}} in the category Society</div>
+        <div class="content">
+            <img src="{{article.image}}" alt="">
+            {{article.content | raw}}
+        </div>
+    </article>
+
+    <section id="comment">
+    <h1>{{ article.comments | length }} comments</h1>
+    {% for comment in article.comments %}
+    <div class="comment">
+        <div class="row">
+            <div class="col-3">
+                {{comment.author}} {{comment.createdAt | date('d/m/Y   H:i')}}
+            </div>
+            <div class="col">
+                {{comment.content | raw}}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+       
+    {% if app.user %}
+    {{ form_start(formComment) }}
+    
+    {{ form_row(formComment.author, {'attr': {'placeholder': "Your name"}}  )}}
+
+    {{ form_row(formComment.content, {'attr': {'placeholder': "Your comment"}}  )}}
+
+    <button type="submit" class="btn btn-success">Comment</button>
+    {{ form_end(formComment) }}
+    {% else %}
+    <h2>You cannot write comments, please login!</h2>
+    {% endif %}
+    </section>
+{% endblock %}
