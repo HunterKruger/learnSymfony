@@ -9,7 +9,7 @@
 
     {% for article in articles %}
     <articles>
-        <h2>{{article.title}}</h2>
+        <h2>{{ article.id }} {{article.title}}</h2>
         <div class="metadata">Written on {{article.createdAt | date('d/m/Y')}} at {{article.createdAt | date('H:i')}} in the category {{article.category.title}}</div> 
         {# createdAt is pointed to a date object, it is not a string, so I need to change it by adding a filter #}
         <div class="content">
@@ -17,6 +17,7 @@
             {{article.content | raw}}
             <a href="{{  path('readmore', {'id':article.id})  }}" class="btn btn-primary">Read more</a>
         </div>
+        <br>
     </articles>
     {% endfor %}
 </section>
