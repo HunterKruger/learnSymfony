@@ -23,15 +23,15 @@
                         <a class="nav-link" href="{{ path('createArticle') }}">Create an article</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/myexperiences">My experiences</a>
+                        <a class="nav-link" href="{{ path('security_registration') }}">Sign up</a>
                     </li>
                     {% if not app.user %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ path('security_login') }}">Connection</a>
+                        <a class="nav-link" href="{{ path('security_login') }}">Sign in</a>
                     </li>
                     {% else %}
                      <li class="nav-item">
-                        <a class="nav-link" href="{{ path('security_logout') }}">Deconnection</a>
+                        <a class="nav-link" href="{{ path('security_logout') }}">Sign out</a>
                     </li>
                     {% endif %}
                 </ul>
