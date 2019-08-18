@@ -43,14 +43,7 @@ class BlogController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/myexperiences", name="myexperiences")
-     */
-    public function myexperiences(){
-        return $this->render('/blog/myexperiences.html.twig',[
-            'controllerName'=>"BlogController"
-        ]);
-    }
+
 
     /**
      * @Route("/createArticle", name="createArticle")

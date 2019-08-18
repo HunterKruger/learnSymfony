@@ -7,7 +7,13 @@
 {% endblock %}
   
 {% block body %}
-<h1>Create an article here!</h1>
+
+        {% if editMode %}
+            <h1>Edit an article here!</h1>
+        {% else %}
+            <h1>Create an article here!</h1>
+        {% endif %}
+        
     {{ form_start(formArticle) }}
 
     {{form_row(formArticle.title, {'attr': {'placeholder': "Article title"}}  )}}
