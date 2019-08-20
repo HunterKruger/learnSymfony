@@ -15,6 +15,10 @@ class SecurityController extends AbstractController
 {
     /**
      * @Route("/registration", name="security_registration")
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @param UserPasswordEncoderInterface $encoder
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function registrastion(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder){
         $user=new User();
